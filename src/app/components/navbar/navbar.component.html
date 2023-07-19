@@ -24,71 +24,33 @@
       </div>
     </div>
     <div class="flex items-center">
-      <button
-        type="button"
-        class="flex rounded-full"
-        aria-expanded="false"
-        type="button"
-        (click)="isOpen = !isOpen"
-        cdkOverlayOrigin
-        #menuOverlay="cdkOverlayOrigin"
-      >
-        <img
-          class="w-8 h-8 rounded-full"
-          src="https://picsum.photos/400/400"
-          alt="user photo"
-        />
-      </button>
+      <div class="flex space-x-2">
+        <button class="text-white" type="button">
+          <fa-icon [icon]="faBell"></fa-icon>
+        </button>
+        <button class="text-white" type="button">
+          <fa-icon [icon]="faInfoCircle"></fa-icon>
+        </button>
+        <button
+          type="button"
+          class="flex rounded-full"
+          aria-expanded="false"
+          type="button"
+          (click)="isOpen = !isOpen"
+          cdkOverlayOrigin
+          #menuOverlay="cdkOverlayOrigin"
+        >
+          <img
+            class="w-8 h-8 rounded-full"
+            src="https://picsum.photos/400/400"
+            alt="user photo"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </nav>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
 
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<button
-        type="button"
-        class="flex rounded-full"
-        aria-expanded="false"
-        type="button"
-        (click)="isOpenBody = !isOpenBody"
-        cdkOverlayOrigin
-        #menuBodyOverlay="cdkOverlayOrigin"
-      >Open</button>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
-<p>hola</p>
 <ng-template
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="menuOverlay"
@@ -158,7 +120,7 @@
     </ul>
   </div>
 </ng-template>
-<ng-template
+<!-- <ng-template
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="menuBodyOverlay"
   [cdkConnectedOverlayOpen]="isOpenBody">
@@ -202,4 +164,4 @@
       </li>
     </ul>
   </div>
-</ng-template>
+</ng-template> -->

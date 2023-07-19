@@ -1,2 +1,36 @@
 <app-navbar></app-navbar>
-<h1>Pagina de boards</h1>
+<div class="container flex mt-10 mx-auto">
+  <div class="w-1/5">
+    <ul class="flex flex-col">
+      <li>
+        <a class="py-1 px-3 block">
+          <fa-icon [icon]="faTrello"></fa-icon> Tableros
+        </a>
+      </li>
+      <li>
+        <a class="py-1 px-3 block">
+          <fa-icon [icon]="faBox"> </fa-icon> Plantillas
+        </a>
+      </li>
+      <li>
+        <a  class="py-1 px-3 block">
+          <fa-icon [icon]="faWaveSquare"></fa-icon> Inicio
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="w-4/5 flex flex-col">
+    <div>
+      <h1 class="mb-3">
+        <fa-icon [icon]="faClock"></fa-icon> Recent
+      </h1>
+    </div>
+    <div class="grid grid-cols-4 gap-4">
+      <div class="w-full bg-sky-400 px-4 py-2 rounded text-white font-bold h-24"> Board preview</div>
+      <div class="w-full bg-green-600 px-4 py-2 rounded text-white font-bold h-24"> Board preview</div>
+      <div class="w-full bg-yellow-400 px-4 py-2 rounded text-white font-bold h-24"> Board preview</div>
+      <div class="w-full bg-purple-500 px-4 py-2 rounded text-white font-bold h-24"> Board preview</div>
+      <div class="w-full bg-red-600 px-4 py-2 rounded text-white font-bold h-24"> Board preview</div>
+    </div>
+  </div>
+</div>
