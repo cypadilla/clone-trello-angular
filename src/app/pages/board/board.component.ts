@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop,moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import { ToDo } from 'src/app/models/todo.model';
+import { Column, ToDo } from 'src/app/models/todo.model';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -20,34 +21,54 @@ import { ToDo } from 'src/app/models/todo.model';
 })
 export class BoardComponent {
 
-  todos: ToDo[] = [
+  public showInput: boolean = false;
+  public showInputToDo: number | undefined;
+  public nameNewColumn: string = "";
+  public nameNewToDo: string = "";
+
+  columns: Column[] =  [
     {
-      id: '5',
-      tittle: 'Lavar los platos'
+      title: 'ToDo',
+      todos: [
+        {
+          id: '5',
+          tittle: 'Lavar los platos'
+        },
+        {
+          id: '2',
+          tittle: 'Comprar un pc'
+        }
+      ]
     },
     {
-      id: '2',
-      tittle: 'Comprar un pc'
-    }
-  ]
-
-  doing: ToDo[] = [
-    {
-      id: '3',
-      tittle: 'Ver un video de platzi'
+      title: 'Doing',
+      todos: [
+        {
+          id: '3',
+          tittle: 'Ver un video de platzi'
+        },
+        {
+          id: '4',
+          tittle: 'Terminar el board'
+        }
+      ]
     },
     {
-      id: '4',
-      tittle: 'Terminar el board'
+      title: 'Done',
+      todos: [
+        {
+          id: '5',
+          tittle: 'Limpiaar pc '
+        }
+      ]
     }
-  ]
+  ];
 
-  done: ToDo[] = [
-    {
-      id: '5',
-      tittle: 'Limpiaar pc '
-    }
-  ]
+  todos: ToDo[] = [];
+
+  doing: ToDo[] = [];
+
+  done: ToDo[] = [];
 
   drop($event: CdkDragDrop<ToDo[]>){
     console.log($event)
@@ -61,5 +82,35 @@ export class BoardComponent {
         $event.currentIndex
       )
     }
+  }
+
+  dropColumn($event: CdkDragDrop<Column[]>){
+    moveItemInArray($event.container.data, $event.previousIndex, $event.currentIndex);
+  }
+  showInputAddColumns() {
+    this.showInput = !this.showInput
+  }
+
+  showInputAddToDo(index: number){
+    this.showInputToDo = index
+  }
+  addColumn(){
+    this.columns.push({
+      title: this.nameNewColumn,
+      todos: []
+    })
+
+    this.showInputAddColumns();
+    this.nameNewColumn = "";
+  }
+
+  addToDo(column:Column){
+    column.todos.push({
+      id:'6',
+      tittle:this.nameNewToDo
+    });
+    this.nameNewToDo = ""
+    this.showInputToDo = undefined;
+    console.log(this.nameNewToDo,column);
   }
 }
