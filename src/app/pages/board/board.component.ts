@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop,moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { Column, ToDo } from 'src/app/models/todo.model';
-import { Title } from '@angular/platform-browser';
+import { faPlus, faX } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -25,6 +26,8 @@ export class BoardComponent {
   public showInputToDo: number | undefined;
   public nameNewColumn: string = "";
   public nameNewToDo: string = "";
+  public faPlus = faPlus;
+  public faX = faX;
 
   columns: Column[] =  [
     {
@@ -112,5 +115,9 @@ export class BoardComponent {
     this.nameNewToDo = ""
     this.showInputToDo = undefined;
     console.log(this.nameNewToDo,column);
+  }
+
+  closeAddToDo(){
+    this.showInputToDo = undefined;
   }
 }

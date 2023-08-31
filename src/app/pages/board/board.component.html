@@ -29,21 +29,51 @@
           <div class="shrink-0">
             <button  (click)="showInputAddToDo(i)"
             [style.display]="showInputToDo === i ? 'none' : ''"
-            >Add ToDo</button>
+            >
+            <a class="block py-1 px-3">
+                <fa-icon [icon]="faPlus"></fa-icon>
+                 Add ToDo
+            </a>
+            </button>
             <div class="flex-col" *ngIf="i == showInputToDo">
-              <input class="w-full" type="text" [(ngModel)]="nameNewToDo" placeholder="Titulo de la ToDo">
-              <button (click)="addToDo(column)">Add ToDo</button>
+              <input class="w-full rounded-lg border-none" type="text" [(ngModel)]="nameNewToDo" placeholder="Titulo de la ToDo">
+              <div class="flex mt-2">
+                <button (click)="addToDo(column)"
+                type="btn"
+                class="text-white px-5 py-3 font-medium rounded text-sm bg-sky-500"
+                >
+                  Add ToDo
+                </button>
+                <a class="flex py-1 px-3 align-middle" (click)="closeAddToDo()">
+                  <fa-icon class="mt-1" [icon]="faX"></fa-icon>
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="shrink-0">
-          <button  (click)="showInputAddColumns()"
+          <button  class="text-white  bg-blue-700" (click)="showInputAddColumns()"
           [style.display]="showInput ? 'none' : ''"
-          >Add columns</button>
-          <div class="flex-col" *ngIf="showInput">
-            <input class="w-full" type="text" [(ngModel)]="nameNewColumn" placeholder="Titulo de columna">
-            <button (click)="addColumn()">Add Column</button>
+          >
+            <a class="block py-1 px-3">
+              <fa-icon [icon]="faPlus"></fa-icon>
+              Add columns
+            </a>
+          </button>
+          <div class="flex-col bg-slate-300 rounded p-1" *ngIf="showInput">
+            <input class="w-full rounded-lg border-none" type="text" [(ngModel)]="nameNewColumn" placeholder="Titulo de columna">
+            <div class="flex mt-2">
+              <button (click)="addColumn()"
+                  type="btn"
+                  class="text-white px-5 py-3 font-medium rounded text-sm bg-sky-500"
+                  >
+                    Add Column
+              </button>
+              <a class="flex py-1 px-3 align-middle" (click)="showInputAddColumns()">
+                <fa-icon class="mt-1" [icon]="faX"></fa-icon>
+              </a>
+            </div>
           </div>
         </div>
       </div>
