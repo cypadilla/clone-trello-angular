@@ -1,6 +1,6 @@
 export interface ToDo {
   id: string;
-  tittle: string;
+  title: string;
 }
 
 export interface Column {
